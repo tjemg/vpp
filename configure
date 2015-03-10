@@ -6668,17 +6668,17 @@ else
     cpu_x86_64=yes
   ;;
   ppc)
-  CFLAGS="$CFLAGS_BASE -mcpu=${cpu_type}"
-  CXXFLAGS="$CXXFLAGS_BASE -mcpu=${cpu_type}"
+  CFLAGS="$CFLAGS_BASE"
+  CXXFLAGS="$CXXFLAGS_BASE"
   ;;
   powerpc64)
   enable_altivec=yes
-  CFLAGS="$CFLAGS_BASE -mcpu=${cpu_type}"
-  CXXFLAGS="$CXXFLAGS_BASE -mcpu=${cpu_type}"
+  CFLAGS="$CFLAGS_BASE"
+  CXXFLAGS="$CXXFLAGS_BASE"
   ;;
   *)
-  CFLAGS="$CFLAGS_BASE -march=${cpu_type}"
-  CXXFLAGS="$CXXFLAGS_BASE -march=${cpu_type}"
+  CFLAGS="$CFLAGS_BASE"
+  CXXFLAGS="$CXXFLAGS_BASE"
   ;;
   esac
 fi
@@ -6716,33 +6716,33 @@ if test "x$enable_icc" = xyes; then
 
   case "${cc_version}" in
   11.*)
-    CFLAGS="$CFLAGS ${icc_cflags} -march=${cpu_type} -mtune=${cpu_type}"
+    CFLAGS="$CFLAGS ${icc_cflags}"
     ;;
   10.*)
-    CFLAGS="$CFLAGS ${icc_cflags} -march=${cpu_type} -mtune=${cpu_type}"
+    CFLAGS="$CFLAGS ${icc_cflags}"
     ;;
   9.*)
-    CFLAGS="$CFLAGS ${icc_cflags} -march=${cpu_type} -mtune=${cpu_type}"
+    CFLAGS="$CFLAGS ${icc_cflags}"
     ;;
   8.1*)
-    CFLAGS="$CFLAGS -march=${cpu_type} -mtune=${cpu_type}"
+    CFLAGS="$CFLAGS"
     ;;
   *)
-    CFLAGS="$CFLAGS -march=${cpu_type} -mcpu=${cpu_type}"
+    CFLAGS="$CFLAGS"
     ;;
   esac
   case "${cxx_version}" in
   11.*)
-    CXXFLAGS="$CXXFLAGS ${icpc_cxxflags} -march=${cpu_type} -mtune=${cpu_type}"
+    CXXFLAGS="$CXXFLAGS ${icpc_cxxflags}"
     ;;
   10.*)
-    CXXFLAGS="$CXXFLAGS ${icpc_cxxflags} -march=${cpu_type} -mtune=${cpu_type}"
+    CXXFLAGS="$CXXFLAGS ${icpc_cxxflags}"
     ;;
   9.*)
-    CXXFLAGS="$CXXFLAGS ${icpc_cxxflags} -march=${cpu_type} -mtune=${cpu_type}"
+    CXXFLAGS="$CXXFLAGS ${icpc_cxxflags}"
     ;;
   *)
-    CXXFLAGS="$CXXFLAGS -march=${cpu_type} -mcpu=${cpu_type}"
+    CXXFLAGS="$CXXFLAGS"
     ;;
   esac
   if test "x$enable_openmp" = xyes; then
@@ -6758,49 +6758,49 @@ else
     case "${cc_version}" in
     4.[2,3,4,5].*)
       if test "x$decided_cpu" = xyes; then
-        CFLAGS="$CFLAGS -mtune=${cpu_type}"
+        CFLAGS="$CFLAGS"
 	cpu_type=${cpu_type}
       else
 	if test "x${cpu_type}" = xgeneric; then
-	  CFLAGS="$CFLAGS_BASE -mtune=generic"
+	  CFLAGS="$CFLAGS_BASE"
 	else
-	  CFLAGS="$CFLAGS_BASE -march=native -mtune=native"
+	  CFLAGS="$CFLAGS_BASE"
 	  cpu_type="native"
 	fi
       fi
       ;;
     4.[0,1].*)
-      CFLAGS="$CFLAGS -march=${cpu_type} -mtune=${cpu_type}"
+      CFLAGS="$CFLAGS"
       ;;
     3.4.*)
-      CFLAGS="$CFLAGS -march=${cpu_type} -mtune=${cpu_type}"
+      CFLAGS="$CFLAGS"
       ;;
     *)
-      CFLAGS="$CFLAGS -march=${cpu_type} -mcpu=${cpu_type}"
+      CFLAGS="$CFLAGS"
       ;;
     esac
     case "${cxx_version}" in
     4.[2,3,4,5].*)
       if test "x$decided_cpu" = xyes; then
-        CXXFLAGS="$CXXFLAGS -mtune=${cpu_type}"
+        CXXFLAGS="$CXXFLAGS"
 	cpu_type=${cpu_type}
       else
 	if test "x${cpu_type}" = xgeneric; then
-	  CXXFLAGS="$CXXFLAGS_BASE -mtune=generic"
+	  CXXFLAGS="$CXXFLAGS_BASE"
 	else
-	  CXXFLAGS="$CXXFLAGS_BASE -march=native -mtune=native"
+	  CXXFLAGS="$CXXFLAGS_BASE"
 	  cpu_type="native"
 	fi
       fi
       ;;
     4.[0,1].*)
-      CXXFLAGS="$CXXFLAGS -march=${cpu_type} -mtune=${cpu_type}"
+      CXXFLAGS="$CXXFLAGS"
       ;;
     3.4.*)
-      CXXFLAGS="$CXXFLAGS -march=${cpu_type} -mtune=${cpu_type}"
+      CXXFLAGS="$CXXFLAGS"
       ;;
     *)
-      CXXFLAGS="$CXXFLAGS -march=${cpu_type} -mcpu=${cpu_type}"
+      CXXFLAGS="$CXXFLAGS"
       ;;
     esac
     ;;
@@ -17164,12 +17164,12 @@ ac_compiler_gnu=$ac_cv_c_compiler_gnu
 
 
 
-ac_fn_c_check_header_mongrel "$LINENO" "stdio.h" "ac_cv_header_stdio_h" "$ac_includes_default"
-if test "x$ac_cv_header_stdio_h" = x""yes; then :
-
-else
-  as_fn_error "Can't find stdio.h" "$LINENO" 5
-fi
+#ac_fn_c_check_header_mongrel "$LINENO" "stdio.h" "ac_cv_header_stdio_h" "$ac_includes_default"
+#if test "x$ac_cv_header_stdio_h" = x""yes; then :
+#
+#else
+#  as_fn_error "Can't find stdio.h" "$LINENO" 5
+#fi
 
 
 ac_fn_c_check_header_mongrel "$LINENO" "stdlib.h" "ac_cv_header_stdlib_h" "$ac_includes_default"
@@ -17188,45 +17188,45 @@ else
 fi
 
 
-ac_fn_c_check_header_mongrel "$LINENO" "limits.h" "ac_cv_header_limits_h" "$ac_includes_default"
-if test "x$ac_cv_header_limits_h" = x""yes; then :
-
-else
-  as_fn_error "Can't find limits.h" "$LINENO" 5
-fi
-
-
-ac_fn_c_check_header_mongrel "$LINENO" "sys/stat.h" "ac_cv_header_sys_stat_h" "$ac_includes_default"
-if test "x$ac_cv_header_sys_stat_h" = x""yes; then :
-
-else
-  as_fn_error "Can't find sys/stat.h" "$LINENO" 5
-fi
-
-
-ac_fn_c_check_header_mongrel "$LINENO" "sys/types.h" "ac_cv_header_sys_types_h" "$ac_includes_default"
-if test "x$ac_cv_header_sys_types_h" = x""yes; then :
-
-else
-  as_fn_error "Can't find sys/types.h" "$LINENO" 5
-fi
-
-
-ac_fn_c_check_header_mongrel "$LINENO" "time.h" "ac_cv_header_time_h" "$ac_includes_default"
-if test "x$ac_cv_header_time_h" = x""yes; then :
-
-else
-  as_fn_error "Can't find time.h" "$LINENO" 5
-fi
-
-
-ac_fn_c_check_header_mongrel "$LINENO" "getopt.h" "ac_cv_header_getopt_h" "$ac_includes_default"
-if test "x$ac_cv_header_getopt_h" = x""yes; then :
-
-else
-  as_fn_error "Can't find getopt.h" "$LINENO" 5
-fi
-
+#ac_fn_c_check_header_mongrel "$LINENO" "limits.h" "ac_cv_header_limits_h" "$ac_includes_default"
+#if test "x$ac_cv_header_limits_h" = x""yes; then :
+#
+#else
+#  as_fn_error "Can't find limits.h" "$LINENO" 5
+#fi
+#
+#
+#ac_fn_c_check_header_mongrel "$LINENO" "sys/stat.h" "ac_cv_header_sys_stat_h" "$ac_includes_default"
+#if test "x$ac_cv_header_sys_stat_h" = x""yes; then :
+#
+#else
+#  as_fn_error "Can't find sys/stat.h" "$LINENO" 5
+#fi
+#
+#
+#ac_fn_c_check_header_mongrel "$LINENO" "sys/types.h" "ac_cv_header_sys_types_h" "$ac_includes_default"
+#if test "x$ac_cv_header_sys_types_h" = x""yes; then :
+#
+#else
+#  as_fn_error "Can't find sys/types.h" "$LINENO" 5
+#fi
+#
+#
+#ac_fn_c_check_header_mongrel "$LINENO" "time.h" "ac_cv_header_time_h" "$ac_includes_default"
+#if test "x$ac_cv_header_time_h" = x""yes; then :
+#
+#else
+#  as_fn_error "Can't find time.h" "$LINENO" 5
+#fi
+#
+#
+#ac_fn_c_check_header_mongrel "$LINENO" "getopt.h" "ac_cv_header_getopt_h" "$ac_includes_default"
+#if test "x$ac_cv_header_getopt_h" = x""yes; then :
+#
+#else
+#  as_fn_error "Can't find getopt.h" "$LINENO" 5
+#fi
+#
 
 
 
