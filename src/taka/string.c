@@ -57,40 +57,40 @@ void taka_tstring_one_tab_space(char *s)
 
 void taka_tstring_replace_str(char **s, size_t *n, const char *target, const char *ns)
 {
-  char *p, *q, *r, *o = NULL;
-  size_t l, m;
-  size_t tl = strlen(target);
-  size_t nsl = strlen(ns);
+    char   *p, *q, *r, *o = NULL;
+    size_t  l, m;
+    size_t  tl  = strlen(target);
+    size_t  nsl = strlen(ns);
 
-  if (tl < nsl) {
-    o = *s;
-    l = strlen(*s);
-    m = l / tl * (nsl - tl);
-    if (*n - (l + 1) < m) {
-      *s = (char *)malloc(sizeof (char) * (l + m + 1));
-      if (!*s) { *s = o; return; }
-      *n = l + m + 1;
+    if (tl < nsl) {
+        o = *s;
+        l = strlen(*s);
+        m = l / tl * (nsl - tl);
+        if (*n - (l + 1) < m) {
+            *s = (char *)malloc(sizeof (char) * (l + m + 1));
+            if (!*s) { *s = o; return; }
+            *n = l + m + 1;
+        } else {
+            *s = (char *)malloc(*n);
+            if (!*s) { *s = o; return; }
+        }
+        p = *s;
+        r = o;
     } else {
-      *s = (char *)malloc(*n);
-      if (!*s) { *s = o; return; }
+        p = *s;
+        r = *s;
     }
-    p = *s;
-    r = o;
-  } else {
-    p = *s;
-    r = *s;
-  }
 
-  while ((q = strstr(r, target))) {
-    memcpy(p, r, q - r);
-    p += q - r;
-    memcpy(p, ns, nsl);
-    p += nsl;
-    r = q + tl;
-  }
+    while ((q = strstr(r, target))) {
+        memmove(p, r, q - r);
+        p += q - r;
+        memmove(p, ns, nsl);
+        p += nsl;
+        r = q + tl;
+    }
 
-  strcpy(p, r);
-  free(o);
+    memmove(p, r,strlen(r)+1);
+    free(o);
 }
 
 void taka_tstring_delete_char(char *s, const char target)
