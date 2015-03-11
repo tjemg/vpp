@@ -1,4 +1,4 @@
-AC_INIT(vpp, 2.0.3, takashige@users.sourceforge.net)
+AC_INIT(vpp, 2.0.4, takashige@users.sourceforge.net)
 AC_CONFIG_SRCDIR([src/vpp.h])
 AM_INIT_AUTOMAKE(vpp, 2.0.3)
 AM_CONFIG_HEADER(config.h)
@@ -7,15 +7,6 @@ AC_CHECK_COMPILERS
 AC_PROG_MAKE_SET
 AC_PROG_INSTALL
 AC_PROG_LIBTOOL
-
-AC_CHECK_HEADER(stdio.h, , AC_MSG_ERROR([Can't find stdio.h]))
-AC_CHECK_HEADER(stdlib.h, , AC_MSG_ERROR([Can't find stdlib.h]))
-AC_CHECK_HEADER(string.h, , AC_MSG_ERROR([Can't find string.h]))
-AC_CHECK_HEADER(limits.h, , AC_MSG_ERROR([Can't find limits.h]))
-AC_CHECK_HEADER([sys/stat.h], , AC_MSG_ERROR([Can't find sys/stat.h]))
-AC_CHECK_HEADER([sys/types.h], , AC_MSG_ERROR([Can't find sys/types.h]))
-AC_CHECK_HEADER(time.h, , AC_MSG_ERROR([Can't find time.h]))
-AC_CHECK_HEADER(getopt.h, , AC_MSG_ERROR([Can't find getopt.h]))
 
 AC_DEFINE(FALSE, (0), [Boolean False])
 AC_DEFINE(TRUE, (!FALSE), [Boolean True])
